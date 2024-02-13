@@ -1,6 +1,6 @@
 <footer class="flex-column">
 
-<a href="./index.php"><img class="logo" src="./assets/images/Duck_logo" alt="Create A Duck Services"></a>
+<a href="./index.php"><img class="logo" src="./assets/images/Duck_logo.jpg" alt="Create A Duck Services"></a>
         
 
 
