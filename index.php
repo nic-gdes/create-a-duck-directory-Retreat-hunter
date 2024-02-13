@@ -1,44 +1,78 @@
 <!DOCTYPE html>
-<html>
-    <?php
-    include('components/head.php');
-    include('components/nav.php');
-    ?>
-<head>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-<h2> 3-column grid layout</h2>
-	<div class="container">
-	   <div class="column">
-	     <h2> Bill </h2>
-		 <img class="./assets/images/Duck 1.png">
-            <ul>
-                <li>Pizza</li>
-                <li>Refried beans</li>
-                <li>Hubaba Gum</li>
-            </ul>
-        </div>
-	   <div class="column">
-	     <h2> Tony </h2>
-		<img class="./assets/images/Duck 2.png">
-            <ul>
-                <li>Nachos</li>
-                <li>Steak</li>
-                <li>Extra Gum Wrappers</li>
-            </ul>
-        </div>
-	   <div class="column">
-	     <h2> Reba </h2>
-		 <img class="./assets/images/Duck 3.png">
-            <ul>
-                <li>Dumplings</li>
-                <li>Apples</li>
-                <li>Left Airpod</li>
-            </ul>
+<html lang="en">
+    <head>
+        <?php include('./components/head.php'); ?>
 
-        </div>
-	</div>
+    </head>
 
-</body>
+    <body>
+        <?php include('./components/nav.php'); ?>
+
+        <?php
+
+$conn = mysqli_connect("db", "db", "db", "db");
+
+if (mysqli_connect_errno()) {
+    echo "Connection error: " . mysqli_connect_error();
+    exit();
+}
+
+$sql = "SELECT * FROM ducks";
+
+$result = mysqli_query($conn, $sql);
+
+if ($result === false) {
+    echo "Error executing query: " . mysqli_error($conn);
+    exit();
+}
+
+$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+if (empty($data)) {
+    echo "No ducks found.";
+    $data = [];
+} else {
+    print_r($data);
+}
+
+mysqli_free_result($result);
+
+mysqli_close($conn);
+
+?>
+
+<?php include('components/head.php'); ?>
+<?php include('components/nav.php'); ?>
+<div id="hero">
+    <div class="container">
+        <div class="info">
+            <h1>Welcome to the Duck Directory</h1>
+        </div>
+    </div>
+</div>
+
+<main>
+    <section>
+        <div class="grid">
+            <?php foreach ($data as $duck) { ?>
+
+                <div class="duck-item">
+
+                    <img src="<?php echo htmlspecialchars($duck["img_src"]); ?>" alt="<?php echo htmlspecialchars($duck["name"]); ?>">
+
+                    <h2><?php echo htmlspecialchars($duck["name"]); ?></h2>
+
+                    <ul>
+                        <li><?php echo htmlspecialchars($duck["favorite_foods"]); ?></li>
+                    </ul>
+
+                </div>
+            <?php } ?>
+        </div>
+    </section>
+</main>
+
+<?php include('components/footer.php'); ?>
+
+    </body>
 </html>

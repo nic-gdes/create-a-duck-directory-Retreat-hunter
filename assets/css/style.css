@@ -1,18 +1,100 @@
-.container {
-    display: grid;
-    grid-template-columns: 100px 150px 200px;
+a {
+    text-decoration: none;
+
+}
+
+body {
+    background-color: rgb(194, 194, 194);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+    color: beige;
     text-align: center;
 }
 
-.column {
-    padding: 16px;
-    height: 250px;
-    margin: 5px;
-    background-color: #cccccc;
+
+ nav {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100vw;
+ }
+
+.logo-contain {
+    width: 130px;
 }
 
-.column ul {
-    list-style-type: none;
+.logo {
+    width: 100%;
+}
+
+
+.nav-link:hover {
+    background-color: rgb(41, 40, 40);
+}
+
+.duck-container1 {
+    display: grid;
+    
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 2rem;
+    width: 80vw;
+
+    color: black;
+    background-color: beige;
+}
+
+.my-ducks {
+    width: 100%;
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.ducks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem;
+    align-items: center;
+}
+
+
+li {
+    list-style: none;
     margin: 0;
+    margin: 0.1rem;
     padding: 0;
 }
+
+.duck-name {
+    margin: 0;
+    margin-top: 2rem;
+}
+
+
+footer {
+    padding-top: 1rem;
+    margin-top: 10rem;
+    background-color: blanchedalmond;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.footer {
+    text-decoration: none;
+    color: black;
+    font-family:Helvetica, Arial, sans-serif;
+}
+
